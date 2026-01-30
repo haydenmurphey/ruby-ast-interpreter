@@ -1,18 +1,19 @@
-Box: A Full-Stack Language Interpreter & TUI
-Box is a custom-built, dynamically typed programming language engine implemented in Ruby. This project demonstrates the complete lifecycle of a language tool, from lexical analysis and parsing to a decoupled execution runtime and an interactive developer interface.
+<h2>Black Box: A Full-Stack Language Interpreter & TUI </h2>
 
-🚀 Key Features
-Custom Language Specification: Supports arithmetic, bitwise logic, relational operations, and complex control flow (conditionals, while-loops, for-each, and function definitions).
+<p>Box is a custom-built, dynamically typed programming language engine implemented in Ruby. This project demonstrates the complete lifecycle of a lsanguage tool, from lexical analysis and parsing to a decoupled execution runtime and an interactive developer interface.</p>
 
-Recursive-Descent Parser: Translates a custom BNF grammar into an Abstract Syntax Tree (AST), handling operator precedence and associativity.
+<h2>🚀 Key Features</h2>
+<p>Custom Language Specification: Supports arithmetic, bitwise logic, relational operations, and complex control flow (conditionals, while-loops, for-each, and function definitions).</p>
 
-Visitor Design Pattern: Utilizes the Visitor pattern to decouple the AST structure from its operations, including a Translater for code serialization and an Evaluator for runtime execution.
+- Recursive-Descent Parser: Translates a custom BNF grammar into an Abstract Syntax Tree (AST), handling operator precedence and associativity.
 
-Scoped Runtime Environment: Manages variable bindings and function scopes with support for recursion and return-path exception handling.
+- Visitor Design Pattern: Utilizes the Visitor pattern to decouple the AST structure from its operations, including a Translater for code serialization and an Evaluator for runtime execution.
 
-Interactive TUI: A terminal-based interface built with the Curses library, allowing developers to test mystery functions, monitor outputs, and debug code in real-time.
+- Scoped Runtime Environment: Manages variable bindings and function scopes with support for recursion and return-path exception handling.
 
-🛠️ Technical Architecture
+- Interactive TUI: A terminal-based interface built with the Curses library, allowing developers to test mystery functions, monitor outputs, and debug code in real-time.
+
+<h2>🛠️ Technical Architecture</h2>
 The Model (AST & Visitor)
 The core of the engine is built on a node hierarchy representing language primitives and operations. By implementing the Visitor Pattern, the project maintains high "craftsmanship" and extensibility, allowing new language behaviors to be added without modifying the underlying node classes.
 
