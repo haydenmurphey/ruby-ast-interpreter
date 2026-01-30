@@ -35,7 +35,6 @@ Evaluation supports complex execution states, including:</h3>
 Clone the repository:
 
 ```Bash
-Bash
 git clone https://github.com/haydenmurphey/ruby-ast-interpreter.git
 ```
 
