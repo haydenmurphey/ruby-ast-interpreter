@@ -1,0 +1,106 @@
+
+Grammar.txt 
+Author: Hayden Murphey 
+
+=========================================================================================
+
+Program Structure: Entire sequence is parsed into a single implicit top level block
+program = declaration*
+declaration = statement
+
+Statements: must end with a semicolon (help seperate each one)
+statement = print_stmt
+          | block_stmt
+          | if_stmt
+          | while_stmt
+          | for_stmt
+          | function_stmt
+          | return_stmt
+          | expr_stmt
+
+print_stmt    → "print" "(" expression ")" ";"
+block_stmt    → "{" declaration* "}"
+if_stmt       → "if" expression declaration* ("else" declaration*)? "end"
+while_stmt    → "while" expression declaration* "end"
+for_stmt      → "for" IDENTIFIER "in" "[" expression "," expression "]" declaration* "end"
+function_stmt → "function" IDENTIFIER "(" params? ")" declaration* "end"
+params        → IDENTIFIER ("," IDENTIFIER)*
+return_stmt   → "return" expression? ";"
+expr_stmt     → expression ";"
+
+==========================================================================================
+
+Precendence ladder for expressions ranging from lowest to highest:
+
+Level N: Assignment (=)
+# Associativity: Right (a = b = 5 is parsed as a = (b = 5))
+assignment = IDENTIFIER "=" assignment
+           | logical_or
+
+Level 0: Logical OR (||)
+# Associativity: Left
+logical_or = logical_or "||" logical_and
+           | logical_and
+
+Level 1: Logical AND (&&)
+# Associativity: Left
+logical_and = logical_and "&&" bitwise
+            | bitwise
+
+Level 2: Bitwise OR, XOR, AND (|, ^, &)
+# Associativity: Left
+bitwise = bitwise ("|" | "^" | "&") equality
+        | equality
+
+Level 3: Equality (==, !=)
+# Associativity: Left
+equality = equality ("==" | "!=") comparison
+         | comparison
+
+Level 4: Comparison (<, <=, >, >=)
+# Associativity: Left
+comparison = comparison ("<" | "<=" | ">" | ">=") shift
+           | shift
+
+Level 5: Bitwise Shifts (<<, >>)
+# Associativity: Left
+shift = shift ("<<" | ">>") term
+      | term
+
+Level 6: Additive (+, -)
+# Associativity: Left
+term = term ("+" | "-") factor
+     | factor
+
+Level 7: Multiplicative (*, /, %)
+# Associativity: Left
+factor = factor ("*" | "/" | "%") exponent
+       | exponent
+
+Level 8: Exponentiation (**)
+# Associativity: Right (2 ** 3 ** 2 is parsed as 2 ** (3 ** 2))
+exponent = unary "**" exponent
+         | unary
+
+Level 9: Unary (-, !, ~)
+# Associativity: Right (--5 is parsed as -(-5))
+unary = ("-" | "!" | "~") unary
+      | primary
+
+Level 10: Function Calls
+call = primary ( "(" arguments? ")" )*
+arguments → expression ( "," expression )*
+
+Level 11: Primary Expressions
+# Highest level of precedence.
+primary = INTEGER
+        | FLOAT
+        | "true"
+        | "false"
+        | "null"
+        | STRING
+        | IDENTIFIER
+        | cast
+        | "(" expression ")"
+
+cast → ("INT" | "FLOAT") "(" expression ")"
