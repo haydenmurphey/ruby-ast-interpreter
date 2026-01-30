@@ -34,13 +34,19 @@ Evaluation supports complex execution states, including:</h3>
 <h2>💻 Installation & Usage</h2>
 Clone the repository:
 
+```Bash
 Bash
 git clone https://github.com/haydenmurphey/ruby-ast-interpreter.git
+```
+
 Install dependencies:
 
-Bash
+```Bash
 gem install curses
+```
+
 Run the Interface:
 
-Bash
+```Bash
 ruby main.rb mystery_function.txt
+```
