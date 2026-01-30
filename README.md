@@ -1,3 +1,5 @@
+![Box Interface Demo](tui_example.png)
+
 <h2>Black Box: A Full-Stack Language Interpreter & TUI </h2>
 
 <p>Box is a custom-built, dynamically typed programming language engine implemented in Ruby. This project demonstrates the complete lifecycle of a language tool, from lexical analysis and parsing to a decoupled execution runtime and an interactive developer interface.</p>
@@ -49,5 +51,5 @@ gem install curses
 Run the Interface:
 
 ```Bash
-ruby main.rb mystery_function.txt
+ruby tui.rb mystery_function.txt/
 ```
