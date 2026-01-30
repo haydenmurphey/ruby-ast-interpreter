@@ -17,19 +17,19 @@
 <h2>🛠️ Technical Architecture</h2>
 
 <h3> The Model (AST & Visitor)</h3>
-The core of the engine is built on a node hierarchy representing language primitives and operations. By implementing the Visitor Pattern, the project maintains high "craftsmanship" and extensibility, allowing new language behaviors to be added without modifying the underlying node classes.
+<p>The core of the engine is built on a node hierarchy representing language primitives and operations. By implementing the Visitor Pattern, the project maintains high "craftsmanship" and extensibility, allowing new language behaviors to be added without modifying the underlying node classes. </p>
 
-The Interpreter (Lexer & Parser)
-The lexer chunks raw source code into tokens, which are then consumed by a recursive-descent parser. The parser enforces grammar rules and builds a robust tree representation of the logic, complete with source-code indexing for precise error reporting.
+<h3>The Interpreter (Lexer & Parser)</h3>
+<p>The lexer chunks raw source code into tokens, which are then consumed by a recursive-descent parser. The parser enforces grammar rules and builds a robust tree representation of the logic, complete with source-code indexing for precise error reporting.</p>
 
-Control Flow & Functions
-Evaluation supports complex execution states, including:
+<h3>Control Flow & Functions
+Evaluation supports complex execution states, including:</h3>
 
-Short-circuiting logical operators.
+- Short-circuiting logical operators.
 
-Dynamic type checking during evaluation.
+- Dynamic type checking during evaluation.
 
-Exception-based Return Logic to handle function exits across nested scopes.
+- Exception-based Return Logic to handle function exits across nested scopes.
 
 💻 Installation & Usage
 Clone the repository:
